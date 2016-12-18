@@ -47,13 +47,15 @@ foreach ($events as $event) {
 
     $SendMessage = new MultiMessageBuilder();
 
-    $TextMessageBuilder = new TextMessageBuilder("承知");
+    $TextMessageBuilder = new TextMessageBuilder("今日の温度は、24度です。");
+    $TextMessageBuilder1 = new TextMessageBuilder("今日の湿度は、湿度は75パーセントです。");
     $ImageMessageBuilder = new ImageMessageBuilder("https://ondobot.herokuapp.com/sample.png", "https://ondobot.herokuapp.com/sample.png");
 
-    if ( $event->getText() === 'test' ) {
-      $SendMessage->add($ImageMessageBuilder);
-    } else {
+    if ( $event->getText() === '温度' ) {
       $SendMessage->add($TextMessageBuilder);
+//      $SendMessage->add($ImageMessageBuilder);
+    } else {
+      $SendMessage->add($TextMessageBuilder1);
     }
 
     $dummy = "ok";
