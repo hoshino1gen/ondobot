@@ -19,7 +19,7 @@ try {
   //insert into sample (crtuser,) values( );
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $stmt = $db->query("select * from sample");
+  $stmt = $pdo->query("select * from sample");
   $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   foreach ( $users as $user ) {
     var_dump($user);
